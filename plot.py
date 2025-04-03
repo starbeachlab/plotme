@@ -15,6 +15,12 @@ filters, arguments = read.filters_from_arguments( [ '00000216_raw.txt'] )
 print(arguments)
 print(filters)
 
+xmin=50
+xmax=1000
+ymin=200
+ymax=4000
+
+
 fname = ""
 for d in arguments[0].split( '\\')[:-1]:
     fname = os.path.join(fname , d)
@@ -53,10 +59,10 @@ axes = plt.gca()
 #plt.legend()
 
 # set to 'False' if you don't want to use this!
-if False:
+if True:
     axes.set_xlim([xmin,xmax])
     print ( "x limits: " + str(xmin) + " " + str(xmax))
-if False:
+if True:
     axes.set_ylim([ymin,ymax])
     print ( "y limits: " + str(ymin) + " " + str(ymax))
 
