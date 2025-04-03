@@ -11,11 +11,11 @@ import matplotlib.pyplot as plt
 import read
 import os
 
-filters, arguments = read.filters_from_arguments( [ '00000216_raw.txt'] )
+filters, arguments = read.filters_from_arguments( [ '00000216_raw.txt:A1|'] )
 print(arguments)
 print(filters)
 
-xmin=50
+xmin=790
 xmax=1000
 ymin=200
 ymax=4000
