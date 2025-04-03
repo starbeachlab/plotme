@@ -8,34 +8,18 @@
 
 
 import matplotlib.pyplot as plt
-import sys
 import read
+import os
 
-
-### SELECT RANGES OF PLOTTING
-
-#xmin = 900
-#xmax = 1100
-
-#xmin = 250
-#xmax = 3150
-
-#ymin = 0
-#ymax = 1200
-
-
-filters, arguments = read.filters_from_arguments( sys.argv[1:] )
-if len( arguments) != len( sys.argv[1:]):
-    print( 'WARNING: check this')
-    exit(1)
+filters, arguments = read.filters_from_arguments( [ '00000216_raw.txt'] )
 print(arguments)
 print(filters)
 
 fname = ""
 for d in arguments[0].split( '\\')[:-1]:
-    fname += d + '\\'
+    fname = os.path.join(fname , d)
 for f,a in zip( filters, arguments):
-    fname += a.split('\\')[-1][:-4] + '_'  ### WINDOWS !!!!
+    fname += os.path.split(a)[1][:-4] + '_'  ### WINDOWS !!!!
     if len(f) > 0:
         for c in f:
             fname += c + '_'
